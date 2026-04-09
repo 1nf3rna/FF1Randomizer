@@ -208,7 +208,7 @@ BtlMag_ApplyDamageBankSwap:
 ;;
 ;;     Code is same as MathBuf_Add16.  See that routine for details, comments here are sparse.
 ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 56
 
 MathBuf_Sub16:
     PHA
@@ -257,7 +257,7 @@ DoubleXAndY:
     
     RTS
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 44
 ;;
 ;;  BtlMag_DidSpellConnect  [$B87E :: 0x3388E]
 ;;
