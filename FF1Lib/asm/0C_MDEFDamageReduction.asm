@@ -3,6 +3,14 @@
 ;;  BtlMag_ApplyDamage  [$B8DB :: 0x338EB]
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                   BtlMag_ApplyDamage:
+B8DB [338DB]  AD 5A 68       LDA $685A
+B8DE [338DE]  C9 C8          CMP #$C8
+B8E0 [338E0]  F0 0B          BEQ $B8ED
+B8E2 [338E2]  20 7E B8       JSR $B87E
+B8E5 [338E5]  90 06          BCC $B8ED
+B8E7 [338E7]  0E 58 68       ASL $6858
+B8EA [338EA]  2E 59 68       ROL $6859
 
 BtlMag_ApplyDamage:
   LDA math_magrandhit
@@ -21,6 +29,14 @@ BtlMag_ApplyDamage:
   LDA #$1C                        ; Load new bank
   JMP SwapPRG
   NOP
+ 
+  :+
+  LDA #MATHBUF_MAGDEFENDERHP
+  LDX #MATHBUF_MAGDEFENDERHP
+  LDY #MATHBUF_BASEDAMAGE
+  JSR MathBuf_Sub16               ; HP -= damage
+  JMP DrawDamageCombatBox         ; Then draw the damage combat box and exit.
+
 
 
   LDA battle_defenderisplayer
